@@ -1,5 +1,7 @@
 # Aseprite Ultra Java
 
+[![Build and test](https://github.com/sumetai/aseprite-ultra-java/actions/workflows/build.yml/badge.svg)](https://github.com/sumetai/aseprite-ultra-java/actions/workflows/build.yml)
+
 **Load `.aseprite` files directly in Java.** Decode pixels, composite layers,
 play tagged animations, build texture atlases, and reload edited files without
 an Aseprite export step.
@@ -26,6 +28,8 @@ example. GPU rendering requires the optional adapter and libGDX's platform backe
 Set `JAVA_HOME` to JDK 21, then:
 
 ```powershell
+git clone https://github.com/sumetai/aseprite-ultra-java.git
+cd aseprite-ultra-java
 .\gradlew.bat build
 .\gradlew.bat :examples:run --args="samples/player.aseprite build/player-atlas.png"
 ```
@@ -41,7 +45,8 @@ and `aseprite-ultra-gdx-0.1.0.jar`; their Maven artifact IDs are shown below.
 
 ### Add to another Gradle project
 
-This release is hosted on GitHub; it is **not published to Maven Central**.
+Source and [release JARs](https://github.com/sumetai/aseprite-ultra-java/releases)
+are hosted on GitHub; it is **not published to Maven Central**.
 For local use, first run this in the library checkout:
 
 ```powershell

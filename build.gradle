@@ -47,6 +47,11 @@ configure([project(':core'), project(':gdx')]) {
                 pom {
                     name = "Aseprite Ultra Java ${project.name}"
                     description = 'Direct Aseprite loading, animation and atlas generation for Java.'
+                    url = 'https://github.com/sumetai/aseprite-ultra-java'
+                    scm {
+                        url = 'https://github.com/sumetai/aseprite-ultra-java'
+                        connection = 'scm:git:https://github.com/sumetai/aseprite-ultra-java.git'
+                    }
                     licenses { license { name = 'MIT'; url = 'https://opensource.org/license/mit' } }
                 }
             }
