@@ -1,0 +1,4 @@
+dependencies {
+    api project(':core')
+    api 'com.badlogicgames.gdx:gdx:1.14.2'
+}

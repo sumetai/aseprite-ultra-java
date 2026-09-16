@@ -1,0 +1,55 @@
+plugins { id 'base' }
+
+allprojects {
+    group = 'io.github.asepriteultra'
+    version = '0.1.0'
+    repositories { mavenCentral() }
+}
+
+subprojects {
+    apply plugin: 'java-library'
+    java {
+        toolchain { languageVersion = JavaLanguageVersion.of(21) }
+        withSourcesJar()
+        withJavadocJar()
+    }
+    tasks.withType(JavaCompile).configureEach {
+        options.release = 17
+        options.encoding = 'UTF-8'
+        options.compilerArgs += ['-Xlint:all', '-Werror']
+    }
+    tasks.withType(Javadoc).configureEach {
+        options.addStringOption('Xdoclint:all,-missing', '-quiet')
+    }
+    tasks.withType(Jar).configureEach {
+        from(rootProject.file('LICENSE')) { into 'META-INF' }
+        from(rootProject.file('THIRD_PARTY_NOTICES.md')) { into 'META-INF' }
+    }
+    tasks.withType(Test).configureEach {
+        useJUnitPlatform()
+        testLogging { events 'passed', 'failed', 'skipped' }
+    }
+    dependencies {
+        testImplementation platform('org.junit:junit-bom:5.12.2')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+}
+
+configure([project(':core'), project(':gdx')]) {
+    apply plugin: 'maven-publish'
+    base { archivesName = "aseprite-ultra-${project.name}" }
+    publishing {
+        publications {
+            library(MavenPublication) {
+                from components.java
+                artifactId = "aseprite-ultra-${project.name}"
+                pom {
+                    name = "Aseprite Ultra Java ${project.name}"
+                    description = 'Direct Aseprite loading, animation and atlas generation for Java.'
+                    licenses { license { name = 'MIT'; url = 'https://opensource.org/license/mit' } }
+                }
+            }
+        }
+    }
+}

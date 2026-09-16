@@ -1,0 +1,4 @@
+plugins { id 'application' }
+dependencies { implementation project(':core') }
+application { mainClass = 'io.github.asepriteultra.examples.ExportAtlas' }
+tasks.named('run', JavaExec) { workingDir = rootProject.projectDir }

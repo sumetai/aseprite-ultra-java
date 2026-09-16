@@ -1,0 +1,2 @@
+// The core has no runtime dependencies, native libraries, graphics context, or AWT requirement.
+tasks.named('processTestResources') { from(rootProject.file('samples')) { include '*.aseprite' } }
