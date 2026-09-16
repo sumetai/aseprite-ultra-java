@@ -239,3 +239,12 @@ MIT. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
 Upstream example assets used by compatibility tests retain their original MIT
 license. Contributions should include a focused fixture/test for each format
 or animation behavior they change.
+
+### Inspiration and references
+
+- **Inspiration:** [Lommix/bevy_aseprite_ultra](https://github.com/Lommix/bevy_aseprite_ultra)
+  — direct loading, animation, atlas and hot-reload workflow.
+- **Java reference:** [elgopher/aseprite-file](https://github.com/elgopher/aseprite-file)
+  — evaluated as a reference for direct Aseprite loading in Java; none of its implementation is included.
+- **Format reference:** [Aseprite file format specification](https://github.com/aseprite/aseprite/blob/main/docs/ase-file-specs.md)
+  — the binary format implemented by this library.
